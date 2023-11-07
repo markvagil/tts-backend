@@ -4,6 +4,7 @@ const User = require("../schemas/schema.js");
 const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Types;
 
+// GET
 // User login authentication, if successful it returns the userId
 const userLogin = async (req, res) => {
   const { userEmail, userPassword } = req.body;
@@ -41,6 +42,7 @@ const userLogin = async (req, res) => {
   }
 };
 
+// GET
 // Fetch user data using userId
 const getUserData = async (req, res) => {
   const { userId } = req.body;
@@ -70,6 +72,7 @@ const getUserData = async (req, res) => {
   }
 };
 
+// POST
 // User account creation
 const addNewUser = async (req, res) => {
   console.log(req.body);
@@ -118,6 +121,7 @@ const addNewUser = async (req, res) => {
   }
 };
 
+// POST
 // Add a new ticket for this userId to their tickets list
 const addNewTicket = async (req, res) => {
   const { userId, ticket } = req.body;
@@ -164,6 +168,7 @@ const addNewTicket = async (req, res) => {
   }
 };
 
+// PATCH
 // Update a ticket for this userId and ticketId
 const updateTicket = async (req, res) => {
   const { userId, ticketId, updatedTicket } = req.body;
@@ -214,6 +219,8 @@ const updateTicket = async (req, res) => {
   }
 };
 
+// DELETE
+// Delete a ticket for this userId and ticketId
 const deleteTicket = async (req, res) => {
   const { userId, ticketId } = req.body;
   if (!userId || !ticketId) {
