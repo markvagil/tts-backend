@@ -43,9 +43,9 @@ const { ObjectId } = mongoose.Types;
 //   }
 // };
 
-// GET
-// Fetch user data using userId, if user does not exist then create a new user
 const getUserData = async (req, res) => {
+  // POST (because get requests don't allow a body)
+  // Fetch user data using userId, if user does not exist then create a new user
   const { userId } = req.body;
   if (!userId) {
     res.status(400).send({ error: "userId field is missing." });
