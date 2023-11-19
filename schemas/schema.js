@@ -17,23 +17,14 @@ const ticketSchema = new mongoose.Schema({
     status_title: String, // title of the status
     color: String, // color of this status
   },
-  users: [mongoose.ObjectId], // all users that are assigned to this ticket, including the original creator
+  users: [String], // all users that are assigned to this ticket, NOT including the creator
   attachments: [attachmentSchema], // array of attachmentSchema
 });
 
 // user.userid.toString() to get the objectId as a string
 const userSchema = new mongoose.Schema(
   {
-    userId: mongoose.ObjectId,
-    userEmail: String,
-    userPassword: String,
-    userName: String,
-    userPicture: {
-      // Modified to include filename, contentType, and data (Buffer)
-      filename: String,
-      contentType: String,
-      data: Buffer,
-    },
+    userId: String,
     tickets: [ticketSchema],
     assignedTickets: [ticketSchema],
   },
@@ -42,9 +33,6 @@ const userSchema = new mongoose.Schema(
       getUserData: async function () {
         return {
           userId: this.userId,
-          userEmail: this.userEmail,
-          userName: this.userName,
-          userPicture: this.userPicture,
           tickets: this.tickets,
           assignedTickets: this.assignedTickets,
         };

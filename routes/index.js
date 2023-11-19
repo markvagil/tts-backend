@@ -7,8 +7,8 @@ const router = express.Router();
 
 // USER routes
 router.get("/get_user_data", ticketData.getUserData); // get user data from id
-router.post("/new_user", ticketData.addNewUser); // post new user
-router.get("/user_login", ticketData.userLogin); // get user login -> check if their email and password are correct, returns user id
+// router.post("/new_user", ticketData.addNewUser); // post new user
+// router.get("/user_login", ticketData.userLogin); // get user login -> check if their email and password are correct, returns user id
 
 // TICKET routes
 router.post("/new_ticket", ticketData.addNewTicket); // post new ticket
