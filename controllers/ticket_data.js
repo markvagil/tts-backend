@@ -264,9 +264,7 @@ const deleteTicket = async (req, res) => {
 
 module.exports = {
   getUserData,
-  addNewUser,
   addNewTicket,
-  userLogin,
   updateTicket,
   deleteTicket,
 };
